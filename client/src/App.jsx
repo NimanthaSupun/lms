@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useMatch } from 'react-router-dom'
 import Home from './pages/students/Home'
 import CourseList from './pages/students/CoursesList'
 import CourseDetails from './pages/students/CourseDetails'
@@ -13,13 +13,16 @@ import Dashbord from './pages/educator/Dashbord'
 import AddCourse from './pages/educator/AddCourse'
 import MyCourses from './pages/educator/MyCourses'
 import StudentEnroll from './pages/educator/StudentEnroll'
+import NavBar from './components/students/NavBar'
 
 
 function App() {
 
-  return (
-   <div>
+  const isEducatorRouter = useMatch('/educator/*')
 
+  return (
+   <div className='text-default min-h-screen bg-white'>
+    {!isEducatorRouter &&  <NavBar />}
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/course-list' element={<CourseList/>} />
