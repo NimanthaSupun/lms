@@ -21,7 +21,8 @@ const NavBar = () => {
           <button>Become Educator</button>
           <Link to='./my-enrollments'>My Entrollment</Link>
         </div>
-        <button onClick={() => openSignIn()} className='bg-blue-600 text-white px-5 py-2 rounded-full'>Create Account</button>
+        { user ? <UserButton/> :
+          <button onClick={() => openSignIn()} className='bg-blue-600 text-white px-5 py-2 rounded-full'>Create Account</button>}
       </div>
 
       <div className='md:hidden flex items-center gap-2 sm:gap-5 text-gray-500'>
